@@ -1,15 +1,11 @@
 
--- drop commands
 
-DROP TABLE USER;
 
-DROP TABLE MOVIE_GENRES;
 
-DROP TABLE MOVIE;
+CREATE DATABASE MOVIES;
 
-DROP TABLE GENRE;
+USE MOVIES;
 
-DROP TABLE REVIEW;
 
 CREATE TABLE GENRE (
     genre_id INT NOT NULL AUTO_INCREMENT,
@@ -102,13 +98,12 @@ CREATE TABLE USER (
     PRIMARY KEY (user_name)
 );
 
-
 CREATE TABLE REVIEW (
 	review_id INT NOT NULL AUTO_INCREMENT, 
     user_name VARCHAR (200) NOT NULL, 
     movie_id INT NOT NULL,
     review_date DATE NOT NULL,
-    review_rating NUMERIC (1,1) NOT NULL,
+    review_rating DECIMAL (2,1) NOT NULL,
     review_description VARCHAR (300), 
     PRIMARY KEY (review_id),
     UNIQUE (user_name, movie_id, review_date),
